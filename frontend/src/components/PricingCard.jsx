@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function PricingCard({ openRazorpay, openLemonSqueezy }) {
   // Base price in USD (must match your Lemon Squeezy product)
-  const USD_PRICE = 2.99;
+  const USD_PRICE = 1;
   
   // Real-time exchange rate (fallback to 96.3 if offline)
   const [exchangeRate, setExchangeRate] = useState(96.3);
@@ -26,7 +26,7 @@ export default function PricingCard({ openRazorpay, openLemonSqueezy }) {
         if (paymentMethod === 'global') {
             openLemonSqueezy();
         } else {
-            // Calculate rounded INR equivalent (e.g. 2.99 * ~96.3 ≈ 288)
+            // Calculate rounded INR equivalent (e.g. 1 * ~96.3 ≈ 96)
             const calculatedAmount = Math.round(USD_PRICE * exchangeRate);
             openRazorpay(true, calculatedAmount);
         }
