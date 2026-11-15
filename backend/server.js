@@ -81,7 +81,7 @@ app.use(helmet());
 
 // ── CORS: only allow the configured frontend origin ──────────────────────────
 app.use(cors({
-    origin: FRONTEND_URL,
+    origin: [FRONTEND_URL, 'http://192.168.29.131:5173'],
     credentials: true,
 }));
 
